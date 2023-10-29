@@ -151,4 +151,119 @@ fn test_classification() {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    let in_idx_cpu:Vec<i32> = vec![14,15];
+	let mut in_idx = arrayfire::Array::new(&in_idx_cpu, arrayfire::Dim4::new(&[3, 1, 1, 1]));
+
+
+    let mut out_idx = in_idx.clone();
+    let mut total_idx = in_idx.clone();
+    RayBNN_Graph::Traversal::COO::traverse_backward(
+        &in_idx,
+        &WRowIdxCOO,
+        &WColIdx,
+        neuron_size,
+        1,
+        &mut out_idx
+    );
+
+    let out_idx_act:Vec<i32> = vec![10,11];
+
+    let mut out_idx_cpu = vec!(i32::default();out_idx.elements());
+    out_idx.host(&mut out_idx_cpu);
+
+    assert_eq!(out_idx_act, out_idx_cpu);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    let in_idx_cpu:Vec<i32> = vec![14,15];
+	let mut in_idx = arrayfire::Array::new(&in_idx_cpu, arrayfire::Dim4::new(&[3, 1, 1, 1]));
+
+
+    let mut out_idx = in_idx.clone();
+    let mut total_idx = in_idx.clone();
+    RayBNN_Graph::Traversal::COO::traverse_backward(
+        &in_idx,
+        &WRowIdxCOO,
+        &WColIdx,
+        neuron_size,
+        2,
+        &mut out_idx
+    );
+
+    let out_idx_act:Vec<i32> = vec![3,5,6];
+
+    let mut out_idx_cpu = vec!(i32::default();out_idx.elements());
+    out_idx.host(&mut out_idx_cpu);
+
+    assert_eq!(out_idx_act, out_idx_cpu);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    let in_idx_cpu:Vec<i32> = vec![14,15];
+	let mut in_idx = arrayfire::Array::new(&in_idx_cpu, arrayfire::Dim4::new(&[3, 1, 1, 1]));
+
+
+    let mut out_idx = in_idx.clone();
+    let mut total_idx = in_idx.clone();
+    RayBNN_Graph::Traversal::COO::traverse_backward(
+        &in_idx,
+        &WRowIdxCOO,
+        &WColIdx,
+        neuron_size,
+        3,
+        &mut out_idx
+    );
+
+    let out_idx_act:Vec<i32> = vec![0,1,2];
+
+    let mut out_idx_cpu = vec!(i32::default();out_idx.elements());
+    out_idx.host(&mut out_idx_cpu);
+
+    assert_eq!(out_idx_act, out_idx_cpu);
+
+
+
 }
