@@ -1,12 +1,12 @@
 [package]
-name = "RayBNN_Optimizer"
-version = "0.1.1"
+name = "RayBNN_Graph"
+version = "0.1.0"
 authors = ["Brosnan Yuen <brosnanyuen@gmail.com>"]
 edition = "2021"
-description = "Gradient Descent Optimizers and Genetic Algorithms using GPUs, CPUs, and FPGAs via CUDA, OpenCL, and oneAPI"
+description = "Graph Manipulation Library For GPUs, CPUs, and FPGAs via CUDA, OpenCL, and oneAPI"
 readme = "README.md"
 repository = "https://github.com/BrosnanYuen/RayBNN_Optimizer"
-keywords = ["gradient-descent","optimizer","optimization","CUDA","OpenCL"]
+keywords = ["traverse","sparse","graph","CUDA","OpenCL"]
 license = "GPL-3.0-only"
 categories = ["math"]
 
@@ -41,7 +41,7 @@ rand = "0.8.5"
 
 
 [lib]
-name = "RayBNN_Optimizer"
+name = "RayBNN_Graph"
 path = "src/lib.rs"
 
 
