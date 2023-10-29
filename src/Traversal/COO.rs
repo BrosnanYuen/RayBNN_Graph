@@ -4,11 +4,8 @@ use RayBNN_Sparse::Util::Search::find_unique;
 
 
 
-const TWO_F64: f64 = 2.0;
 
-
-
-const COO_find_limit: u64 = 1500000000;
+const COO_FIND_LIMIT: u64 = 1500000000;
 
 
 
@@ -29,7 +26,7 @@ pub fn traverse_backward(
 
 
 
-    let COO_batch_size = 1 + ((COO_find_limit/WColIdx.dims()[0]) as u64);
+    let COO_batch_size = 1 + ((COO_FIND_LIMIT/WColIdx.dims()[0]) as u64);
 
 
 
@@ -84,7 +81,7 @@ pub fn traverse_forward(
 
 
 
-    let COO_batch_size = 1 + ((COO_find_limit/WColIdx.dims()[0]) as u64);
+    let COO_batch_size = 1 + ((COO_FIND_LIMIT/WColIdx.dims()[0]) as u64);
 
 
 
@@ -137,7 +134,7 @@ pub fn check_connected(
 
     let out_num = out_idx.dims()[0];
 
-    let COO_batch_size = 1 + ((COO_find_limit/out_idx.dims()[0]) as u64);
+    let COO_batch_size = 1 + ((COO_FIND_LIMIT/out_idx.dims()[0]) as u64);
 
 
     let mut con_out_idx = in_idx.clone();
@@ -214,7 +211,7 @@ pub fn check_connected2(
 
     let out_num = out_idx.dims()[0];
 
-    let COO_batch_size = 1 + ((COO_find_limit/out_idx.dims()[0]) as u64);
+    let COO_batch_size = 1 + ((COO_FIND_LIMIT/out_idx.dims()[0]) as u64);
 
 
     let mut con_out_idx = in_idx.clone();
