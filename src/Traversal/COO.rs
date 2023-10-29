@@ -159,15 +159,13 @@ pub fn check_connected(
         if   detect_out_idx.dims()[0] < out_num
         {
             connected = false;
-            println!("Not Connected");
+            
         }
         else
         {
-            println!("Connected");
+            
         }
 
-        arrayfire::print_gen("input_idx".to_string(), &input_idx,Some(6));
-        arrayfire::print_gen("con_out_idx".to_string(), &con_out_idx,Some(6));
         
     }
 
@@ -177,80 +175,6 @@ pub fn check_connected(
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-pub fn check_connected2(
-    in_idx: &arrayfire::Array<i32>,
-    out_idx: &arrayfire::Array<i32>,
-    WRowIdxCOO: &arrayfire::Array<i32>,
-    WColIdx: &arrayfire::Array<i32>,
-    neuron_size: u64,
-    depth: u64
-) -> bool
-{
-    let mut connected: bool = true;
-
-    let in_num = in_idx.dims()[0] as i64;
-
-    let mut temp_out_idx = in_idx.clone();
-
-    let mut input_idx = in_idx.clone();
-    let mut detect_out_idx = in_idx.clone();
-
-    let out_num = out_idx.dims()[0];
-
-    let COO_batch_size = 1 + ((COO_FIND_LIMIT/out_idx.dims()[0]) as u64);
-
-
-    let mut con_out_idx = in_idx.clone();
-
-    for i in 0..in_num
-    {
-        input_idx = arrayfire::row(&in_idx, i);
-
-        traverse_forward(
-            &input_idx,
-            WRowIdxCOO,
-            WColIdx,
-            neuron_size,
-            depth,
-            &mut temp_out_idx
-        );
-        
-        detect_out_idx = COO_batch_find(out_idx, &temp_out_idx, COO_batch_size);
-        
-        con_out_idx = arrayfire::lookup(out_idx, &detect_out_idx, 0);
-
-        if   detect_out_idx.dims()[0] < out_num
-        {
-            connected = false;
-            break;
-            //println!("Not Connected");
-        }
-        else
-        {
-            //println!("Connected");
-        }
-
-        //arrayfire::print_gen("input_idx".to_string(), &input_idx,Some(6));
-        //arrayfire::print_gen("con_out_idx".to_string(), &con_out_idx,Some(6));
-        
-    }
-
-    connected
-}
 
 
 
