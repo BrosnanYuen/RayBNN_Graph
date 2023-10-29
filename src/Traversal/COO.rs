@@ -1,5 +1,7 @@
 use arrayfire;
-use RayBNN_Sparse;
+use RayBNN_Sparse::Util::Search::COO_batch_find;
+use RayBNN_Sparse::Util::Search::find_unique;
+
 
 
 const TWO_F64: f64 = 2.0;
