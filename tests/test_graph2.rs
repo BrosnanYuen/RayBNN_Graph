@@ -26,9 +26,8 @@ fn test_graph() {
     let neuron_size: u64 = 16;
 
     let matrix_dims = arrayfire::Dim4::new(&[neuron_size,neuron_size,1,1]);
-    let mut W = clusterdiffeq::export::dataloader_f64::file_to_matrix(
+    let mut W: arrayfire::Array<f64>  = RayBNN_DataLoader::Dataset::CSV::file_to_arrayfire(
     	"./test_data/sparse_test3.csv",
-    	matrix_dims
     );
 
     W = arrayfire::sparse_from_dense(&W, arrayfire::SparseFormat::COO);
@@ -66,18 +65,16 @@ fn test_graph() {
 	};
 
     let neuron_idx_dims = arrayfire::Dim4::new(&[1,13,1,1]);
-    let mut neuron_idx = clusterdiffeq::export::dataloader_i32::file_to_matrix(
+    let mut neuron_idx: arrayfire::Array<i32> = RayBNN_DataLoader::Dataset::CSV::file_to_arrayfire(
     	"./test_data/neuron_idx3.csv",
-    	neuron_idx_dims
     );
 
     neuron_idx = arrayfire::transpose(&neuron_idx, false);
 
 
     let neuron_pos_dims = arrayfire::Dim4::new(&[13,3,1,1]);
-    let mut neuron_pos = clusterdiffeq::export::dataloader_f64::file_to_matrix(
+    let mut neuron_pos: arrayfire::Array<f64> = RayBNN_DataLoader::Dataset::CSV::file_to_arrayfire(
     	"./test_data/neuron_pos3.csv",
-    	neuron_pos_dims
     );
 
 
@@ -88,7 +85,8 @@ fn test_graph() {
         &mut WRowIdxCOO, 
         &mut WColIdx, 
         &neuron_pos, 
-        &neuron_idx);
+        &neuron_idx
+    );
 
 
 
