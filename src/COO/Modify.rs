@@ -21,13 +21,13 @@ const COO_FIND_LIMIT: u64 = 1500000000;
 
 
 
-pub fn delete_loops(
+pub fn delete_loops<Z: arrayfire::FloatingPoint>(
     last_idx: &arrayfire::Array<i32>,
     first_idx: &arrayfire::Array<i32>,
     neuron_size: u64,
     depth: u64,
 
-    WValues: &mut arrayfire::Array<f64>,
+    WValues: &mut arrayfire::Array<Z>,
     WRowIdxCOO: &mut arrayfire::Array<i32>,
     WColIdx: &mut arrayfire::Array<i32>
 )
