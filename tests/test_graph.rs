@@ -52,7 +52,7 @@ fn test_graph() {
     let mut out_idx = in_idx.clone();
     let mut total_idx = in_idx.clone();
     
-    RayBNN_Graph::Traversal::COO::traverse_forward(
+    RayBNN_Graph::COO::Traversal::traverse_forward(
         &in_idx,
         &WRowIdxCOO,
         &WColIdx,
@@ -91,7 +91,7 @@ fn test_graph() {
 
     let mut out_idx = in_idx.clone();
     let mut total_idx = in_idx.clone();
-    RayBNN_Graph::Traversal::COO::traverse_forward(
+    RayBNN_Graph::COO::Traversal::traverse_forward(
         &in_idx,
         &WRowIdxCOO,
         &WColIdx,
@@ -131,7 +131,7 @@ fn test_graph() {
 
     let mut out_idx = in_idx.clone();
     let mut total_idx = in_idx.clone();
-    RayBNN_Graph::Traversal::COO::traverse_forward(
+    RayBNN_Graph::COO::Traversal::traverse_forward(
         &in_idx,
         &WRowIdxCOO,
         &WColIdx,
@@ -172,7 +172,7 @@ fn test_graph() {
 
     let mut out_idx = in_idx.clone();
     let mut total_idx = in_idx.clone();
-    RayBNN_Graph::Traversal::COO::traverse_backward(
+    RayBNN_Graph::COO::Traversal::traverse_backward(
         &in_idx,
         &WRowIdxCOO,
         &WColIdx,
@@ -207,7 +207,7 @@ fn test_graph() {
 
     let mut out_idx = in_idx.clone();
     let mut total_idx = in_idx.clone();
-    RayBNN_Graph::Traversal::COO::traverse_backward(
+    RayBNN_Graph::COO::Traversal::traverse_backward(
         &in_idx,
         &WRowIdxCOO,
         &WColIdx,
@@ -248,7 +248,7 @@ fn test_graph() {
 
     let mut out_idx = in_idx.clone();
     let mut total_idx = in_idx.clone();
-    RayBNN_Graph::Traversal::COO::traverse_backward(
+    RayBNN_Graph::COO::Traversal::traverse_backward(
         &in_idx,
         &WRowIdxCOO,
         &WColIdx,
