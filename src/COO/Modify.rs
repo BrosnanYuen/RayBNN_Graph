@@ -285,34 +285,6 @@ pub fn delete_loops(
 	*WRowIdxCOO = arrayfire::Array::new(&WRowIdxCOO_cpu, arrayfire::Dim4::new(&[WValues_cpu.len() as u64, 1, 1, 1]));
 	
 
-    /* 
-    COO_batch_size = 1 + ((COO_find_limit/gidx1.dims()[0]) as u64);
-
-	let gidx3 = COO_batch_find_u64(&gidx1, &gidx2, COO_batch_size);
-
-
-
-	//Filter out existing connections
-	if gidx3.dims()[0] > 0
-	{
-
-		table = arrayfire::constant::<bool>(true,gidx1.dims());
-
-
-		inarr = arrayfire::constant::<bool>(false, gidx3.dims());
-	
-		let mut idxrs = arrayfire::Indexer::default();
-		idxrs.set_index(&gidx3, 0, None);
-		arrayfire::assign_gen(&mut table, &idxrs, &inarr);
-	
-		tempidx = arrayfire::locate(&table);
-
-
-		*WValues = arrayfire::lookup(WValues, &tempidx, 0);
-		*WRowIdxCOO = arrayfire::lookup(WRowIdxCOO, &tempidx, 0);
-		*WColIdx = arrayfire::lookup(WColIdx, &tempidx, 0);
-	}
-    */
 
 
 }
