@@ -232,7 +232,7 @@ pub fn delete_loops<Z: arrayfire::FloatingPoint>(
 
 
 
-	let mut WValues_cpu = vec!(f64::default();WValues.elements());
+	let mut WValues_cpu = vec!(Z::default();WValues.elements());
     WValues.host(&mut WValues_cpu);
 
 	let mut WRowIdxCOO_cpu = vec!(i32::default();WRowIdxCOO.elements());
