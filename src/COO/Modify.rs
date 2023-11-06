@@ -48,7 +48,7 @@ pub fn delete_loops(
 
 
 
-    let mut COO_batch_size = 1 + ((COO_find_limit/filter_idx.dims()[0]) as u64);
+    let mut COO_batch_size = 1 + ((COO_FIND_LIMIT/filter_idx.dims()[0]) as u64);
 
 
 
@@ -87,7 +87,7 @@ pub fn delete_loops(
         if detect_first_idx.dims()[0] > 0
         {
 
-            COO_batch_size = 1 + ((COO_find_limit/temp_first_idx.dims()[0]) as u64);
+            COO_batch_size = 1 + ((COO_FIND_LIMIT/temp_first_idx.dims()[0]) as u64);
             detect_first_idx = COO_batch_find( &temp_first_idx,&filter_idx, COO_batch_size);
         
             if detect_first_idx.dims()[0] > 0
@@ -143,7 +143,7 @@ pub fn delete_loops(
                 continue;
             }
 
-            COO_batch_size = 1 + ((COO_find_limit/temp_first_idx.dims()[0]) as u64);
+            COO_batch_size = 1 + ((COO_FIND_LIMIT/temp_first_idx.dims()[0]) as u64);
             detect_first_idx = COO_batch_find( &temp_first_idx,&filter_idx, COO_batch_size);
         
             if detect_first_idx.dims()[0] > 0
